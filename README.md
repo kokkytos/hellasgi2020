@@ -2,39 +2,59 @@
 
 **[Εργαστήριο Χωρικής Ανάλυσης, Γεωγραφικών Πληροφοριακών Συστημάτων και Θεματικής Χαρτογραφίας](http://www.gislab.gr/)**
 
-Το τρέχον αποθετήριο αποτελεί το υλικό για την παρουσίαση του εργαστηρίου (workshop) στο συνέδριο HellasGI 2020.
+Το τρέχον αποθετήριο αποτελεί υλικό για την παρουσίαση του εργαστηρίου (workshop) στο 11ο Πανελλήνιο Συνέδριο της Ελληνικής Εταιρείας Γεωγραφικών Συστημάτων Πληροφοριών ([HellasGIs](https://hellasgi.gr/)).
 
 ## Στόχος
 
 Στόχος του εργαστηρίου είναι να παρουσιαστούν στον χρήστη οι δυνατότητες που προσφέρει η γλώσσα προγραμματισμού R για τον υπολογισμό δεικτών με τα δεδομένα νυχτερινών φώτων VIIRS Nighttime Day/Night Band Composites. 
-Με πρακτικά παραδείγματα, θα υπολογιστεί, και θα οπτικοποιηθεί σε διαγράμματα και χάρτες ο δείκτης Sum of Lights (SoL) ανά μήνα και έτος για ένα πλήθος περιοχών.
-Κατά την διάρκεια του εργαστηρίου θα επιδειχθεί μια σειρά αναγκαίων διαδικασιών τόσο επί των διανυσματικών όσο και επί των ψηφιδωτών δεδομένων.
-
-## Πηγές δεδομένων
-
-NOAA, National Geophysical Data Center, Defense Meteorological Satellite Program (DMSP). “Version 1 Nighttime VIIRS Day/Night Band Composites.” Earth Observation Group - Defense Meteorological Satellite Progam, Boulder | Ngdc.Noaa.Gov. Πρόσβαση 08/2020. https://ngdc.noaa.gov/eog/dmsp/downloadV4composites.html.
+Με πρακτικά παραδείγματα, θα υπολογιστεί, και θα οπτικοποιηθεί σε διαγράμματα και χάρτες ο δείκτης Sum of Lights (SoL) ανά μήνα, τρίμηνο και έτος για ένα πλήθος περιοχών.
+Κατά την διάρκεια του εργαστηρίου θα επιδειχθεί μια σειρά τυπικών αλλά αναγκαίων διαδικασιών τόσο επί των διανυσματικών όσο και επί των ψηφιδωτών δεδομένων.
 
 
-## Προαπαιτούμενα 
+## Προαπαιτούμενα για την συμμετοχή στο εργαστήριο
 
-### Εκτέλεση του κώδικα του εργαστηρίου σε τοπικό επίπεδο
+Ο χρήστης πρέπει να έχει βασικές γνώσεις Συστημάτων Γεωγραφικών Πληροφοριών και πρόσβαση σε ηλεκτρονικό υπολογιστή με σύνδεση στο διαδίκτυο.
+Επιπλέον, βασικές γνώσεις προγραμματισμού είναι επιθυμητές αλλά όχι αναγκαίες.
 
-Για την εκτέλεση του κώδικα απαιτείται η λήψη του αποθετήριο μέσω του git (ή μέσω λήψης ως [συμπιεσμένο αρχείο](https://github.com/kokkytos/hellasgi2020/archive/master.zip).)
+## Εκτέλεση του κώδικα του εργαστηρίου 
+
+### σε τοπικό περιβάλλον
+
+Για την εκτέλεση του κώδικα σε τοπικό περιβάλλον απαιτείται η λήψη του αποθετήριου μέσω του git (ή μέσω λήψης ως [συμπιεσμένο αρχείο](https://github.com/kokkytos/hellasgi2020/archive/master.zip).)
 και τα παρακάτω προαπαιτούμενα:
 
 * το πακέτο στατικής ανάλυσης **R** (https://www.r-project.org/) 
 * το περιβάλλον εργασίας **Rstudio** (https://www.rstudio.com/)
-* οι βιβλιοθήκες *raster, rasterVis, sf, stringr, furrr, tibble, dplyr, ggplot2, zoo*. Για την εγκατάστασή τους δώστε στο Console του rstudio την εντολή:
-`install.packages(c("raster","rasterVis","sf","stringr","furrr","tibble","dplyr","ggplot2","zoo"),dependencies=T)`
+* οι βιβλιοθήκες *raster, rasterVis, sf, stringr, purrr, tibble, dplyr, ggplot2, zoo, lubridate, exactextractr*. Για την εγκατάστασή τους δώστε στο Console του rstudio την εντολή:
+`install.packages(c("raster","rasterVis","sf","stringr","purrr","tibble","dplyr","ggplot2","zoo", "lubridate", "exactextractr"),dependencies=T)`
 
 * R Notebook vector και raster δεδομένα από το τρέχον αποθετήριο του workshop.
 * Προαιρετικά το **git** (https://git-scm.com/). Για να λάβετε το περιεχόμενο του workshop μέσω του *git* δώστε την εντολή: `git clone https://github.com/kokkytos/hellasgi2020.git`
 
 Το πλήρες περιβάλλον στο οποίο εκτελέστηκε ο τρέχων κώδικας R περιγράφεται στο αρχείο [sessionInfo.txt](sessionInfo.txt) 
 
-### Εκτέλεση του κώδικα σε διαδραστικό διαδικτυακό περιβάλλον
+### σε διαδραστικό διαδικτυακό περιβάλλον
 
-Ο κώδικας του εργαστηρίο διατίθεται και διαδικτυακά με δυνατότητα διαδραστικής εκτέλεσης από τον χρήστη: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kokkytos/hellasgi2020/master?filepath=workshop.R)
+Ο κώδικας του εργαστηρίο διατίθεται και διαδικτυακά με δυνατότητα διαδραστικής εκτέλεσης από τον χρήστη: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kokkytos/hellasgi2020/master?urlpath=rstudio). Ο χρήστης ανακατευθύνεται σε περιβάλλον rstudio όπου πρέπει να ανοίξει το αρχείο *workshop.R*
+
+## Περιεχόμενα του αποθετηρίου
+
+* κατάλογος *vector* περιλαμβάνει διανυσματικά δεδομένα.
+* κατάλογος *raster* περιλαμβάνει ψηφιδωτά δεδομένα.
+* αρχείο *workshop.R* περιλαμβάνει τον κώδικα R του εργαστηρίου.
+* αρχείο *README.md* το τρέχον αρχείο.
+* βοηθητικά αρχεία *runtime.txt, install.R, apt.txt* αναγκαία για την υπηρεσία [mybinder.org](https://mybinder.org/).
+* αρχείο *sessionInfo.txt* το περιβάλλον της R στο οποίο συντάχθηκε ο τρέχων κώδικας.
+* αρχείο *.gitignore* και κατάλογος *.git* συνοδευτικά του λογισμικού git.
+
+
+## Πηγές δεδομένων
+
+NOAA, Earth Observation Group, National Centers for Environmental Information, “Version 1 Nighttime VIIRS Day/Night Band Composites.”  Πρόσβαση 08/2020. https://eogdata.mines.edu/download_dnb_composites.html.
+
+Ελληνική Στατιστική Αρχή, Ψηφιακά Χαρτογραφικά Υπόβαθρα, “Καλλικρατικά Όρια-Καλλικρατικοί Δήμοι.”  Πρόσβαση 08/2020. https://www.statistics.gr/digital-cartographical-data.
+
+
 
 ## Συγγραφείς
 
